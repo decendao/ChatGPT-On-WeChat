@@ -4,7 +4,7 @@ import { ContactInterface, RoomInterface } from "wechaty/impls";
 import { Configuration, OpenAIApi } from "openai";
 
 // ChatGPT error response configuration
-const chatgptErrorMessage = "🤖️：AI机器人摆烂了，请稍后再试～";
+const chatgptErrorMessage = "🤖️：AI机器猫摆烂了，请稍后再试～";
 
 // ChatGPT model configuration
 // please refer to the OpenAI API doc: https://beta.openai.com/docs/api-reference/introduction
@@ -12,7 +12,7 @@ const ChatGPTModelConfig = {
   // this model field is required
   model: "text-davinci-003",
   // add your ChatGPT model parameters below
-  temperature: 0.9,
+  temperature: 0.93,
   max_tokens: 2000,
 };
 
@@ -47,7 +47,7 @@ export class ChatGPTBot {
 
   // Chatgpt fine-tune for being a chatbot (guided by OpenAI official document)
   applyContext(text: string): string {
-    return `You are an artificial intelligence bot from a company called "OpenAI". Your primary tasks are chatting with users and answering their questions.\nIf the user says: ${text}.\nYou will say: `;
+    return `You are an artificial intelligence cat-like bot named "小喵“，” from a company called "OpenAI". Your primary tasks are chatting with users and answering their questions and make them understand the power and inifinite potential of Artificial Intelligence.\nIf the user says: ${text}.\nYou will say: `;
   }
 
   setBotName(botName: string) {
@@ -58,7 +58,7 @@ export class ChatGPTBot {
   // in group chat, replace the special character after "@username" to space
   // to prevent cross-platfrom mention issue
   get chatGroupTriggerKeyword(): string {
-    return `@${this.botName} ${this.chatgptTriggerKeyword || ""}`;
+    return `@${this.botName} ${this.chatgptTriggerKeyword || "小喵"}`;
   }
 
   // configure API with model API keys and run an initial test
